@@ -1,10 +1,35 @@
 <!-- Fourth (Sign In) section -->
-@extends('index')
+<!DOCTYPE html>
+<!--Magister - html5 template by GetTemplate in bootstrap-->
+<html lang="en">
+<head>
+	<!--<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">-->
+	
+	<title>ClaimMo - Motor Insurance</title>
 
-@section('body')
+<!--	<link rel="shortcut icon" href="assets/images/gt_favicon.png">-->
+	<link rel="shortcut icon" href="{{url('assets/images/gt_favicon.png')}}">
+	
+	<!-- Bootstrap itself -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="assets/css/magister.css">
+
+	<!-- Fonts -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+</head>
+
+<!-- use "theme-invert" class on bright backgrounds, also try "text-shadows" class -->
+<body class="theme-invert">
+
+<body>
 <!--<a href="{{ URL::to('signup') }}">Signup here</a>-->
 <!--<section class="section" >-->
-@if (Auth::guest())
 	<form action="{{ URL::to('signin') }}" method="POST">
 		<div class="container">
 
@@ -12,7 +37,7 @@
 
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2 ">
-					<div class="thumbnail">
+					<!-- <div class="thumbnail"> -->
 						<center>
 							<img src="images/user.jpg" class="img-responsive img-circle" alt="Responsive image" >
 						</center>
@@ -29,8 +54,8 @@
 								<div class="col-sm-10">
 									<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
 								</div>
-							</form>
-						</div>
+						</form>
+						<!-- </div> -->
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<div class="checkbox">
@@ -51,9 +76,9 @@
 		</div>
 	</div>
 </form>
-@else
 
-	<div class="container">
+
+	<!-- <div class="container">
 
 		<h2 class="text-center title">Sign In</h2>
 
@@ -70,6 +95,7 @@
 			</div>
 		</div>
 	</div>
-</form>
-@endif
-@stop
+</form> -->
+
+
+</body>

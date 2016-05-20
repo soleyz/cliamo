@@ -81,14 +81,15 @@
 												<td><input type="radio" checked name ="gender" value="Male"> Male<br>
 													<input type="radio" name ="gender" value="Female"> Female<br>
 												</td>
-											</tr>
-											<tr>
+											</tr><input type="hidden" name="available" required value=0><input type="hidden" name="checktype" required value=0>
+											<!-- <tr>
 												<td>
 												<span class="label label-info" style=" width:100%; display:block;">
 												<font size = "4">available</font>
 												</span>
 												</td>
 												<td><input type="number" name="available" required> </td>
+												
 											</tr>
 											<tr>
 												<td>
@@ -98,7 +99,8 @@
 												</td>
 												<td><input type="number" name="checktype" required> </td>
 											</tr>
-											<tr>
+											
+											<tr> -->
 												<div class="form-group">
 												    <td>
 													<span class="label label-info" style=" width:100%; display:block;">

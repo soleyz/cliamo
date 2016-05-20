@@ -24,6 +24,7 @@
 												</td>
 												<td><input type="text" name="username" required ></td>
 											</tr>
+
 											<tr>
 												<td width="200">
 												<span class="label label-info" style=" width:100%; display:block;">
@@ -106,14 +107,16 @@
 												</td>
 												<td><input type="text" name="platenumpart3" required> </td>
 											</tr>
-											<tr>
+											<input type="hidden" name="checktype" required value=1><input type="hidden" name="available" required value=0>
+											<!-- <tr>
 												<td>
 												<span class="label label-info" style=" width:100%; display:block;">
 												<font size = "4">checktype</font>
 												</span>
 												</td>
 												<td><input type="number" name="checktype" required> </td>
-											</tr>
+											</tr> -->
+
 											<tr>
 												<div class="form-group">
 												    <td>

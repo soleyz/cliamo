@@ -9,98 +9,39 @@
 
 <div class="container">
 
-	<h2 class="text-center title">User Info</h2>
-	<p class="lead text-center">
-		Huge thank you to all people who publish<br>
-		their photos at <a href="http://unsplash.com">Unsplash</a>, thank you guys!
-	</p>
-	<a href="{{ URL::to('signout') }}">Logout</a><br>
-	<a href="{{ URL::to('editprofile') }}">edit profile</a><br>
-  <a href="{{ URL::to('claimlist') }}">Claim List</a>
+	<h2 class="text-center title">Information</h2>
+
+	
 	<div class="row">
-		<div class="col-sm-4 col-sm-offset-2">
+		<div class="col-sm-8 col-sm-offset-2">
 			<div class="panel panel-primary " >
 				<div class="panel-heading text-center">User Information</div>
 				<div class="panel-body ">
 					<table class="table table-striped">
 						<tr>
-							<th>Name</th>
+							<th>First Name</th>
 							<td><?php echo Auth::User()->firstname; ?></td>
 						</tr>
 						<tr>
-							<th>Age</th>
+							<th>Last Name</th>
 							<td><?php echo Auth::User()->lastname; ?></td>
 						</tr>
 						<tr>
-							<th>Height</th>
+							<th>Phone Number</th>
 							<td><?php echo Auth::User()->phonenumber; ?></td>
 						</tr>
 						<tr>
-							<th>Weight</th>
-							<td><?php echo Auth::User()->latitude;  ?></td>
+							<th>Gender</th>
+							<td><?php echo Auth::User()->gender;  ?></td>
 						</tr>
 						<tr>
-							<th>Gender</th>
-							<td><?php echo Auth::User()->longtitude;  ?></td>
+							<th>E-mail</th>
+							<td><?php echo Auth::User()->email;  ?></td>
 						</tr>
 					</table>
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-4">
-			<div class="panel panel-primary " >
-				<div class="panel-heading text-center">Calulation</div>
-				<div class="panel-body ">
-					<p>Your calories for a day</p> 
-					<div class="alert alert-success text-center" role="alert">
-  			
-  						<td><?php echo Auth::User()->caloriesForOneDay;  ?></td>
-  					</div>
-  					<div class="panel panel-primary " >
-  						<div class="panel-heading text-center">Disease from food related</div>
-
-  						<div class="panel-body ">
-  							<table class="table table-striped">
-  								<tr>
-  									<p>โรคที่เสี่ยงต่อการเป็น</p> 
-
-  								</tr>
-  								<tr>
-  									<?php if(!isset($disease)){
-                      echo"<tr>";
-                      echo "<th>please add food</th>";
-                      echo"</tr>";
-                    
-                    }
-                    else {
-                      for($i=0;$i<count($disease);$i++){
-                         echo"<tr>";
-                      echo "<th>".$disease[$i]."</th>";
-                      echo"</tr>";
-                      }
-                    //var_dump($disease);
-                    /*foreach($disease as $container){
-                      foreach($container as $value){
-                        echo"<tr>"; 
-                        echo "<th>".$value."</th>";
-                        echo "</tr>";
-                      }
-                    }*/
-              
-                    }?>
-
-                  </tr>
-                  <tr>
-                   <td></td>
-                   <td></td>
-                 </tr>
-               </table>
-             </div>
-           </div>
-         </div>									
-       </div>
-     </div>
-   </div>
  </div>
  @else
 

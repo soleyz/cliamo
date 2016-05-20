@@ -82,6 +82,38 @@ class SigninController extends BaseController{
 			// }
 			
 		}
+	public function androidSignin()
+	{
+				$userdata = array(
+					'username' 	=> $_POST["username"],
+					'password' 	=> $_POST["password"]
+					);
+
+			// attempt to do the login
+				if (Auth::attempt($userdata)) {
+
+				// validation successful!
+				// redirect them to the secure section or whatever
+				// return Redirect::to('secure');
+				// for now we'll just echo success (even though echoing in a controller is bad)
+					DB::table('users')
+						->where('username' ,'=', Auth::User()->username)
+						->where('password' ,'=',Auth::User()->password)
+            			->update(array('longtitude' => $_POST["longtitude"],'available' => 1 ,'latitude' => $_POST["latitude"]));
+
+					$user = DB::table('users')->where('username' ,'=', Auth::User()->username)->where('password' ,'=',Auth::User()->password)->first();					
+					return json_encode($user);
+
+				} 
+				else {	 	
+					//return 'fail';
+					// return $userdata;
+					return json_encode("Please fill it agian");//->with('message','fail');
+				}
+
+			// }
+			
+		}
 	public function doLogin(){
 		
 		
@@ -89,6 +121,8 @@ class SigninController extends BaseController{
 		 $auth = User::where('platenumpart1', '=', Input::get('platenumpart1'))->where('platenumpart2', '=', Input::get('platenumpart2'))->where('platenumpart3', '=', Input::get('platenumpart3'))->first();
         if($auth){
             Auth::login($auth);
+            
+            
             return Redirect::to('userinfo');
         }
         else
@@ -97,5 +131,58 @@ class SigninController extends BaseController{
         }
 				
 	}
+	public function androidLogin(){
+		
+		
+					//if (Auth::attempt('platenumpart1' => Input::get('platenumpart1')))
+		 $auth = User::where('platenumpart1', '=', $_POST['platenumpart1'])->where('platenumpart2', '=', $_POST['platenumpart2'])->where('platenumpart3', '=', $_POST['platenumpart3'])->first();
+        if($auth){
+            // Auth::login($auth);
+            $user = User::find($auth->id);
+			Auth::login($user);
+			DB::table('users')
+						->where('username' ,'=', Auth::User()->username)
+						->where('password' ,'=',Auth::User()->password)
+            			->update(array('longtitude' => $_POST["longtitude"],'latitude' => $_POST["latitude"]));
+            $user = DB::table('users')->where('username' ,'=', Auth::User()->username)->where('password' ,'=',Auth::User()->password)->first();	
+            return json_encode($user);
+        }
+        else {	 	
+					return json_encode("Please fill it agian");//->with('message','fail');
+		}
+				
+	}
+	
+	public function saveOfficerToken()
+	{
+				// $userdata = array(
+				// 	'username' 	=> $_POST["username"],
+				// 	'password' 	=> $_POST["password"]
+				// 	);
+
+			// attempt to do the login
+				// if (Auth::attempt($userdata)) {
+
+				// validation successful!
+				// redirect them to the secure section or whatever
+				// return Redirect::to('secure');
+				// for now we'll just echo success (even though echoing in a controller is bad)
+					DB::table('users')
+						->where('id' ,'=', $_POST["id"])
+            			->update(array('token' => $_POST["token"]));
+            		return json_encode($_POST);
+					// $user = DB::table('users')->where('id' ,'=',$_POST["id"] )->first();					
+					// return json_encode($user);
+
+				// } 
+				// else {	 	
+					//return 'fail';
+					// return $userdata;
+					// return json_encode("Please fill it agian");//->with('message','fail');
+				// }
+
+			// }
+			
+		}
 }
 
